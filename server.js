@@ -14,6 +14,7 @@
 const legoData = require("./modules/legoSets");
 const authData = require('./modules/auth-service.js'); // A-6
 const path = require("path");
+const pg = require( 'pg' );
 
 const clientSessions = require('client-sessions');
 
