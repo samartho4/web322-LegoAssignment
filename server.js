@@ -8,7 +8,7 @@
 *
 * Name: Samarth Sharma   Student ID: 139563225     Date: 2024-08-15
 *
-* Published Website: https://worrisome-bat-long-johns.cyclic.app/
+* Published Website: 
 *
 ********************************************************************************/
 const legoData = require("./modules/legoSets");
@@ -142,6 +142,10 @@ app.get('/lego/deleteSet/:num', ensureLogin, (req, res) => {
 
 // Login and Register Routes
 
+app.get('/login', (req, res) => {
+  res.render('login');
+});
+
 app.post('/login', (req, res) => {
   req.body.userAgent = req.get('User-Agent');
 
@@ -187,9 +191,11 @@ app.use((req, res, next) => {
 });
 
 legoData.initialize().then(authData.initialize).then(function(){
-    app.listen(PORT, function(){
-        console.log(`app listening on:  ${PORT}`);
+    app.listen(HTTP_PORT, function(){
+        console.log(`app listening on: ${HTTP_PORT}`);
     });
 }).catch(function(err){
     console.log(`unable to start server: ${err}`);
 });
+
+module.exports = app;
